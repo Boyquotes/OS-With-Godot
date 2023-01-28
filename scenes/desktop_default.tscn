@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf1su2fjs0klc"]
+
+[ext_resource type="Script" path="res://scripts/desktop_default.gd" id="1_0e5mx"]
+[ext_resource type="Texture2D" uid="uid://cenkv0vhl4kct" path="res://res/images/default_desktop_wallpaper.jpg" id="2_qnkw7"]
+[ext_resource type="FontFile" uid="uid://c0horobc3g3i6" path="res://res/fonts/HARMONYOS_SANS_SC_BOLD.TTF" id="3_i84fu"]
+[ext_resource type="Theme" uid="uid://r5d7e6j7lfh7" path="res://res/new_theme.tres" id="4_qarmp"]
+
+[node name="desktop_default" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0e5mx")
+
+[node name="UnderBg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.223529, 0.223529, 0.223529, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qnkw7")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_i84fu")
+theme_override_font_sizes/font_size = 20
+text = "Power"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+position = Vector2i(800, 500)
+size = Vector2i(231, 100)
+unresizable = true
+theme = ExtResource("4_qarmp")
+dialog_text = "Are you sure want to quit?"
+
+[connection signal="pressed" from="Panel/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

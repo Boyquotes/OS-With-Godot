@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://r5d7e6j7lfh7"]
+
+[ext_resource type="FontFile" uid="uid://b623560xo5bsm" path="res://res/fonts/HARMONYOS_SANS_SC_REGULAR.TTF" id="1_v7fxw"]
+
+[resource]
+default_font = ExtResource("1_v7fxw")
+default_font_size = 18
+/font_sizes/w = 18

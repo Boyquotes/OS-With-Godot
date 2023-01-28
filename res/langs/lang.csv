@@ -1,0 +1,25 @@
+keys,en_US,zh_CN
+OS_VER_TRANS,NotOS Development Version,NotOS 开发版
+DATE_MONTH_1,"January, ",1月 
+DATE_MONTH_2,"February, ",2月 
+DATE_MONTH_3,"March, ",3月 
+DATE_MONTH_4,"April, ",4月 
+DATE_MONTH_5,"May, ",5月 
+DATE_MONTH_6,"June, ",6月 
+DATE_MONTH_7,"July, ",7月 
+DATE_MONTH_8,"August, ",8月 
+DATE_MONTH_9,"September, ",9月 
+DATE_MONTH_10,"October, ",10月 
+DATE_MONTH_11,"November, ",11月 
+DATE_MONTH_12,"December, ",12月 
+DATE_SP_DAY, , 日 
+DATE_WEEKDAY_1,Monday,星期一
+DATE_WEEKDAY_2,Tuesday,星期二
+DATE_WEEKDAY_3,Wednesday,星期三
+DATE_WEEKDAY_4,Thursday,星期四
+DATE_WEEKDAY_5,Friday,星期五
+DATE_WEEKDAY_6,Saturday,星期六
+DATE_WEEKDAY_7,Sunday,星期天
+LOGIN_TEXT,Login,登录
+LOGIN_PLACEHOLDER_TEXT,Input Password…,请输入密码..
+LOGIN_TIP,Press Enter to Login,按下回车键以登录

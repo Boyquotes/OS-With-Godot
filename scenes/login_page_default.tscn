@@ -1,0 +1,202 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxj1jnidk4b1p"]
+
+[ext_resource type="Script" path="res://scripts/login_page_default.gd" id="1_5oomg"]
+[ext_resource type="FontFile" uid="uid://c0horobc3g3i6" path="res://res/fonts/HARMONYOS_SANS_SC_BOLD.TTF" id="2_x84ga"]
+[ext_resource type="FontFile" uid="uid://b623560xo5bsm" path="res://res/fonts/HARMONYOS_SANS_SC_REGULAR.TTF" id="3_px5eb"]
+[ext_resource type="Texture2D" uid="uid://0bj5dxvm4blc" path="res://res/images/baseline_account_circle.svg" id="4_wrw42"]
+
+[sub_resource type="Animation" id="Animation_y72cm"]
+resource_name = "LoginPanel_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("loginPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_31rck"]
+resource_name = "LoginProgress_move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("loginPanel/CenterContainer/VBoxContainer/ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_03gtu"]
+_data = {
+"LoginPanel_in": SubResource("Animation_y72cm"),
+"LoginProgress_move": SubResource("Animation_31rck")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ulcc0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2msc"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[node name="login_page_default" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5oomg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_03gtu")
+}
+
+[node name="Wallpaper" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_ulcc0")
+
+[node name="DATETIME" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -198.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TimerCont" type="VBoxContainer" parent="DATETIME"]
+layout_mode = 2
+
+[node name="TimeDsplay" type="Label" parent="DATETIME/TimerCont"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x84ga")
+theme_override_font_sizes/font_size = 150
+text = "TIME HERE"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DateDsplay" type="Label" parent="DATETIME/TimerCont"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_px5eb")
+theme_override_font_sizes/font_size = 38
+text = "DATE HERE"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Wallpaper_copyright" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 159.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Wallpaper_copyright"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x84ga")
+theme_override_font_sizes/font_size = 16
+text = "Wallpapers from Bing"
+
+[node name="Tip" type="MarginContainer" parent="."]
+modulate = Color(1, 1, 1, 0.470588)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="Tip"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x84ga")
+theme_override_font_sizes/font_size = 20
+text = "LOGIN_TIP"
+
+[node name="loginPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v2msc")
+
+[node name="CenterContainer" type="CenterContainer" parent="loginPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="loginPanel/CenterContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="loginPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_wrw42")
+
+[node name="UsernameLabel" type="Label" parent="loginPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x84ga")
+theme_override_font_sizes/font_size = 30
+text = "USERNAME HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="loginPanel/CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_px5eb")
+theme_override_font_sizes/font_size = 15
+placeholder_text = "LOGIN_PLACEHOLDER_TEXT"
+alignment = 1
+secret = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="LoginButton" type="Button" parent="loginPanel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_px5eb")
+theme_override_font_sizes/font_size = 20
+text = "LOGIN_TEXT"
+
+[node name="ProgressBar" type="ProgressBar" parent="loginPanel/CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="pressed" from="loginPanel/CenterContainer/VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
