@@ -10,6 +10,8 @@ var TimeDisplay: Label
 var DateDisplay: Label
 var date_now
 
+var UsernameText: Label
+
 var LoginButton: Button
 var LoginProgress: ProgressBar
 var LoginPasswordEdit: LineEdit
@@ -33,6 +35,12 @@ func _ready():
     TimeDisplay = $"DATETIME/TimerCont/TimeDsplay"
     DateDisplay = $"DATETIME/TimerCont/DateDsplay"
     
+    _time_update()
+    
+    UsernameText = $"loginPanel/CenterContainer/VBoxContainer/UsernameLabel"
+    Global.read_configfile()
+    UsernameText.text = Global.username
+    
     LoginButton = $"loginPanel/CenterContainer/VBoxContainer/LoginButton"
     LoginProgress = $"loginPanel/CenterContainer/VBoxContainer/ProgressBar"
     LoginPasswordEdit = $"loginPanel/CenterContainer/VBoxContainer/LineEdit"
@@ -45,26 +53,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    date_now = Time.get_datetime_dict_from_system()
-    # year, month, day, weekday, hour, minte, second
-    var hour = str(date_now.hour)
-    var minute = str(date_now.minute)
-    if(hour.length() == 1):
-        hour = "0" + hour
-    if(minute.length() == 1):
-        minute = "0" + minute
-    TimeDisplay.text = hour + ":" + minute
-    DateDisplay.text = tr("DATE_MONTH_" + str(date_now.month)) + str(date_now.day) + \
-                       tr("DATE_SP_DAY") + tr("DATE_WEEKDAY_" + str(date_now.weekday))
     
-    if(Input.is_action_just_pressed("ui_accept") && !on_login && !display_animate_playing):
+    _time_update()
+    
+    if(Input.is_action_just_pressed("Login_default") && !on_login && !display_animate_playing):
         if( (display_login==false) && ($"loginPanel".modulate == Color8(255,255,255,0) ) ):
             aniplay.play("LoginPanel_in")
         display_login = !display_login
     
     if(Input.is_action_just_pressed("Login_default") && !display_login):
         $"loginPanel".modulate = Color8(255,255,255,0)
-    
+
+func _time_update():
+    TimeDisplay.text = Global.time_hour + ":" + Global.time_minute
+    DateDisplay.text = Global.date_local
+
 func _login_system():
     on_login = true
     LoginProgress.visible = true

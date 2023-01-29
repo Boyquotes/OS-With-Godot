@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf1su2fjs0klc"]
+[gd_scene load_steps=7 format=3 uid="uid://cf1su2fjs0klc"]
 
 [ext_resource type="Script" path="res://scripts/desktop_default.gd" id="1_0e5mx"]
 [ext_resource type="Texture2D" uid="uid://cenkv0vhl4kct" path="res://res/images/default_desktop_wallpaper.jpg" id="2_qnkw7"]
 [ext_resource type="FontFile" uid="uid://c0horobc3g3i6" path="res://res/fonts/HARMONYOS_SANS_SC_BOLD.TTF" id="3_i84fu"]
+[ext_resource type="FontFile" uid="uid://b623560xo5bsm" path="res://res/fonts/HARMONYOS_SANS_SC_REGULAR.TTF" id="4_e30c4"]
 [ext_resource type="Theme" uid="uid://r5d7e6j7lfh7" path="res://res/new_theme.tres" id="4_qarmp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4w2v"]
+line_spacing = -0.5
+font_size = 17
 
 [node name="desktop_default" type="Control"]
 layout_mode = 3
@@ -43,6 +48,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_right = 20
+
+[node name="TimeDisplay" type="Label" parent="Panel/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_e30c4")
+text = "TIME HERE
+% DATE HERE"
+label_settings = SubResource("LabelSettings_c4w2v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -53,6 +82,7 @@ grow_vertical = 2
 
 [node name="Button" type="Button" parent="Panel/HBoxContainer"]
 layout_mode = 2
+focus_mode = 1
 theme_override_fonts/font = ExtResource("3_i84fu")
 theme_override_font_sizes/font_size = 20
 text = "Power"
