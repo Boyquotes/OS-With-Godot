@@ -39,13 +39,15 @@ func read_configfile():
         read_configfile()
         return
     password = str(config.get_value("NotOS", "password"))
-    if password.is_empty(): has_password = true
+    if !password.is_empty(): has_password = true
     username = config.get_value("NotOS", "username")
     if username.is_empty(): username = "admin"
+    print(password)
+    print(has_password)
 
 func create_def_configfile():
     for i in def_config:
-        config.set_value("NotOS", i[0], i[1])
+        config.set_value("NotOS", str(i[0]), str(i[1]))
     config.save(config_path)
 
 func time_update():
@@ -63,3 +65,13 @@ func date_update():
     date_local = ( tr( "DATE_MONTH_" + str(date_now.month) ) + str(date_now.day) + \
                    tr("DATE_SP_DAY") + tr( "DATE_WEEKDAY_" + str(date_now.weekday) ) )
     date_clean = str(date_now.year) + "/" + str(date_now.month) + "/" + str(date_now.day)
+
+func open_url(meta):
+    print("Opening url: ", str(meta), "\n  -- Don't trust unsafe url!")
+    OS.shell_open(str(meta))
+
+func load_file_as_text(res_url):
+    var file = FileAccess.open(res_url, FileAccess.READ)
+    var content = file.get_as_text()
+    file = null
+    return content

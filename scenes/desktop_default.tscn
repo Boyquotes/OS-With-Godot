@@ -85,14 +85,17 @@ layout_mode = 2
 focus_mode = 1
 theme_override_fonts/font = ExtResource("3_i84fu")
 theme_override_font_sizes/font_size = 20
-text = "Power"
+text = "STARTMENU_START"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "POPUP_CONFIM_TITLE"
 position = Vector2i(800, 500)
 size = Vector2i(231, 100)
 unresizable = true
 theme = ExtResource("4_qarmp")
-dialog_text = "Are you sure want to quit?"
+ok_button_text = "POPUP_CONFIM_OK"
+dialog_text = "POPUP_CONFIM_TEXT"
+cancel_button_text = "POPUP_CONFIM_CANCEL"
 
 [connection signal="pressed" from="Panel/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

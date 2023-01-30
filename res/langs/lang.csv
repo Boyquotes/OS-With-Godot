@@ -1,5 +1,5 @@
 keys,en_US,zh_CN
-OS_VER_TRANS,NotOS Development Version,NotOS 开发版
+OS_NAME_TRANS,NotOS Development Version,NotOS 开发版
 DATE_MONTH_1,"January, ",1月 
 DATE_MONTH_2,"February, ",2月 
 DATE_MONTH_3,"March, ",3月 
@@ -23,3 +23,22 @@ DATE_WEEKDAY_7,Sunday,星期天
 LOGIN_TEXT,Login,登录
 LOGIN_PLACEHOLDER_TEXT,Input Password…,请输入密码..
 LOGIN_TIP,Press Enter to Login,按下回车键以登录
+STARTMENU_POWER,Power,电源
+STARTMENU_SETTING,Setting,设置
+STARTMENU_START,Start,开始
+BUTTON_CLOSE,Close,关闭
+POPUP_CONFIM_TITLE,Please Confim,请确认
+POPUP_CONFIM_TEXT,Are you sure want to do this?,你确定要这样做吗？
+POPUP_CONFIM_OK,OK,确定
+POPUP_CONFIM_CANCEL,Cancel,取消
+SETTING_USER_USERNAME,Username,用户名
+SETTING_USER_USERNAME_EMPTY,Username could not be empty,用户名不能为空！
+SETTING_USER_LANGUAGE,Language,语言
+SETTING_ABOUT_LICENSE,Licensed under the [b]MIT License[/b],本软件为开源软件，使用 [b]MIT License[/b] 开源
+SETTING_ABOUT_LICENSE_INCLUDED,Licenses of included software:,使用的开源软件及其协议
+SETTING_ABOUT_DANGER_TITLE,DANGER ZONE,危险区
+SETTING_ABOUT_DANGER_INIT_CONFIG,Initialize configuration,初始化配置
+SETTING_ABOUT_DANGER_INIT_CONFIG_TOOLTIP,"THIS BUTTON WILL CLEAR YOU ALL CONFIGS!!
+IF YOU DO NOT UNDERSTAND WANT IS THIS, DO NOT PUSH IT!","此按钮将会清除您的全部配置！
+如果您不知道这是什么，不要按下！"
+SETTING_ABOUT_DANGER_CRASH,DO NOT PUSH!!,不要按！！

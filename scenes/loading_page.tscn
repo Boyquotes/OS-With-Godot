@@ -116,7 +116,7 @@ texture = ExtResource("1_eagga")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_g5r2o")
 theme_override_font_sizes/font_size = 25
-text = "OS_VER_TRANS"
+text = "OS_NAME_TRANS"
 horizontal_alignment = 1
 vertical_alignment = 1
 

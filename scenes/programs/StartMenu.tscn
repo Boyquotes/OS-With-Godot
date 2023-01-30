@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjr6f6vflwtc"]
+
+[ext_resource type="Script" path="res://scripts/programs/StartMenu.gd" id="1_muj0x"]
+[ext_resource type="Texture2D" uid="uid://b6rl2x8mg08lg" path="res://res/images/icons/power_setting_new.svg" id="1_pgf7v"]
+[ext_resource type="FontFile" uid="uid://b623560xo5bsm" path="res://res/fonts/HARMONYOS_SANS_SC_REGULAR.TTF" id="2_pf02e"]
+[ext_resource type="Texture2D" uid="uid://dhrub7gybhd7m" path="res://res/images/icons/setting_mui.svg" id="3_42skv"]
+
+[node name="StartMenu" type="Panel"]
+custom_minimum_size = Vector2(600, 700)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -700.0
+offset_right = 600.0
+grow_vertical = 0
+script = ExtResource("1_muj0x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+alignment = 2
+
+[node name="SettingButton" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pf02e")
+theme_override_font_sizes/font_size = 20
+text = "STARTMENU_SETTING"
+icon = ExtResource("3_42skv")
+flat = true
+
+[node name="PowerButton" type="Button" parent="HBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pf02e")
+theme_override_font_sizes/font_size = 20
+text = "STARTMENU_POWER"
+icon = ExtResource("1_pgf7v")
+flat = true
+
+[node name="Tree" type="Tree" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+text = "BUTTON_CLOSE"
+
+[connection signal="pressed" from="HBoxContainer/Buttons/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Buttons/PowerButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

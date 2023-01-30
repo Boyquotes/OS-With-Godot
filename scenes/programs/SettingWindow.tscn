@@ -1,0 +1,181 @@
+[gd_scene load_steps=6 format=3 uid="uid://cigm6dh1vjtqa"]
+
+[ext_resource type="FontFile" uid="uid://b623560xo5bsm" path="res://res/fonts/HARMONYOS_SANS_SC_REGULAR.TTF" id="1_ftj2u"]
+[ext_resource type="Script" path="res://scripts/programs/SettingWindow.gd" id="1_iwhlp"]
+[ext_resource type="FontFile" uid="uid://c0horobc3g3i6" path="res://res/fonts/HARMONYOS_SANS_SC_BOLD.TTF" id="3_c7js3"]
+[ext_resource type="FontFile" uid="uid://bmpu162rgmxqt" path="res://res/fonts/DEJAVUSANSMONO.TTF" id="4_ky57t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb71s"]
+bg_color = Color(0, 0, 0, 0.607843)
+
+[node name="SettingWindow" type="Window"]
+title = "Settings"
+size = Vector2i(500, 400)
+unresizable = true
+min_size = Vector2i(500, 400)
+theme_override_fonts/title_font = ExtResource("1_ftj2u")
+script = ExtResource("1_iwhlp")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ftj2u")
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_sb71s")
+
+[node name="User" type="Panel" parent="TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/User"]
+layout_mode = 0
+offset_right = 602.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/User/MarginContainer"]
+layout_mode = 2
+
+[node name="TipLabel" type="Label" parent="TabContainer/User/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_c7js3")
+text = "TIP HERE"
+vertical_alignment = 1
+
+[node name="SettingUsername" type="HBoxContainer" parent="TabContainer/User/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="TabContainer/User/MarginContainer/VBoxContainer/SettingUsername"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c7js3")
+theme_override_font_sizes/font_size = 18
+text = "SETTING_USER_USERNAME"
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/User/MarginContainer/VBoxContainer/SettingUsername"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ftj2u")
+theme_override_font_sizes/font_size = 18
+text = "USERNAME"
+max_length = 20
+expand_to_text_length = true
+
+[node name="SettingLanguage" type="HBoxContainer" parent="TabContainer/User/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="TabContainer/User/MarginContainer/VBoxContainer/SettingLanguage"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c7js3")
+theme_override_font_sizes/font_size = 18
+text = "SETTING_USER_LANGUAGE"
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/User/MarginContainer/VBoxContainer/SettingLanguage"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "English (en)"
+popup/item_0/id = 0
+popup/item_1/text = "汉语 (zh-CN)"
+popup/item_1/id = 1
+
+[node name="About" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/About"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/About/MarginContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/About/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c7js3")
+theme_override_font_sizes/font_size = 30
+text = "OS_NAME_TRANS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ftj2u")
+theme_override_fonts/bold_font = ExtResource("3_c7js3")
+bbcode_enabled = true
+text = "[wave amp=40 freq=3]© 2023 [b]Create Alpha Technology[/b][/wave]
+[url=https://github.com/nofuncoding/OS-With-Godot]Open Source at there[/url]"
+fit_content = true
+
+[node name="Label3" type="Label" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTING_ABOUT_LICENSE"
+
+[node name="Label2" type="RichTextLabel" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ftj2u")
+theme_override_fonts/bold_font = ExtResource("3_c7js3")
+bbcode_enabled = true
+text = "Contact us: [b]NoFun[/b] <nofuncoding@qq.com>
+
+Powered by Godot Engine.
+[url=https://godotengine.org/license]Godot Engine License[/url]
+"
+fit_content = true
+
+[node name="Label4" type="Label" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTING_ABOUT_LICENSE_INCLUDED"
+
+[node name="TextEdit" type="TextEdit" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ky57t")
+theme_override_font_sizes/font_size = 14
+text = "LICENSE
+if this is empty, you get a problem. report as issue."
+editable = false
+wrap_mode = 1
+
+[node name="Label5" type="Label" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c7js3")
+text = "SETTING_ABOUT_DANGER_TITLE"
+
+[node name="DefConfigButton" type="Button" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "SETTING_ABOUT_DANGER_INIT_CONFIG_TOOLTIP"
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_c7js3")
+text = "SETTING_ABOUT_DANGER_INIT_CONFIG"
+
+[node name="EasterEggButton" type="Button" parent="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ftj2u")
+text = "SETTING_ABOUT_DANGER_CRASH"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="text_submitted" from="TabContainer/User/MarginContainer/VBoxContainer/SettingUsername/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="item_selected" from="TabContainer/User/MarginContainer/VBoxContainer/SettingLanguage/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="meta_clicked" from="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="meta_clicked" from="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer/Label2" to="." method="_on_label_2_meta_clicked"]
+[connection signal="pressed" from="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer/DefConfigButton" to="." method="_on_def_config_button_pressed"]
+[connection signal="pressed" from="TabContainer/About/MarginContainer/ScrollContainer/VBoxContainer/EasterEggButton" to="." method="_on_easter_egg_button_pressed"]
