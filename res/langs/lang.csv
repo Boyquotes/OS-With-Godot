@@ -31,9 +31,12 @@ POPUP_CONFIM_TITLE,Please Confim,请确认
 POPUP_CONFIM_TEXT,Are you sure want to do this?,你确定要这样做吗？
 POPUP_CONFIM_OK,OK,确定
 POPUP_CONFIM_CANCEL,Cancel,取消
+SETTING_TITLE,Setting,设置
+SETTING_USER_TITLE,User,用户
 SETTING_USER_USERNAME,Username,用户名
 SETTING_USER_USERNAME_EMPTY,Username could not be empty,用户名不能为空！
 SETTING_USER_LANGUAGE,Language,语言
+SETTING_ABOUT_TITLE,About,关于
 SETTING_ABOUT_LICENSE,Licensed under the [b]MIT License[/b],本软件为开源软件，使用 [b]MIT License[/b] 开源
 SETTING_ABOUT_LICENSE_INCLUDED,Licenses of included software:,使用的开源软件及其协议
 SETTING_ABOUT_DANGER_TITLE,DANGER ZONE,危险区
@@ -42,3 +45,4 @@ SETTING_ABOUT_DANGER_INIT_CONFIG_TOOLTIP,"THIS BUTTON WILL CLEAR YOU ALL CONFIGS
 IF YOU DO NOT UNDERSTAND WANT IS THIS, DO NOT PUSH IT!","此按钮将会清除您的全部配置！
 如果您不知道这是什么，不要按下！"
 SETTING_ABOUT_DANGER_CRASH,DO NOT PUSH!!,不要按！！
+SETTING_ABOUT_DANGER_CRASH_MESSAGE,I told you don't push the button! An Easter Egg. Not a bug.,我告诉你不要按它！现在好了！（彩蛋）

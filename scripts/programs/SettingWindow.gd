@@ -46,7 +46,7 @@ func _on_rich_text_label_meta_clicked(meta): Global.open_url(meta)
 
 func _on_easter_egg_button_pressed():
     # TODO: Don't add easter eggs again!
-    OS.crash("I told you don't push the button! An Easter Egg. Not a bug.")
+    OS.crash(tr("SETTING_ABOUT_DANGER_CRASH_MESSAGE"))
 
 func _on_close_requested():
     queue_free()

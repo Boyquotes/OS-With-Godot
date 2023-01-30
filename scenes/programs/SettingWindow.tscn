@@ -9,7 +9,7 @@
 bg_color = Color(0, 0, 0, 0.607843)
 
 [node name="SettingWindow" type="Window"]
-title = "Settings"
+title = "SETTING_TITLE"
 size = Vector2i(500, 400)
 unresizable = true
 min_size = Vector2i(500, 400)
